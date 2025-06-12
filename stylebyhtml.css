@@ -1,0 +1,108 @@
+/* General Body Styling */
+body {
+    background-color: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+/* Heading: Main Welcome */
+.text-sample {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #39ff14;
+    margin-top: 30px;
+}
+
+/* Official Button */
+.official-btn {
+    background: linear-gradient(to right, #00c853, #64dd17);
+    color: white;
+    padding: 14px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.4);
+}
+
+.official-btn:hover {
+    background: linear-gradient(to right, #00bfa5, #00e676);
+    transform: scale(1.05);
+}
+
+/* Kawasaki Z900 Title */
+.z900 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #00e676;
+    text-align: center;
+    margin-top: 40px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px #003300;
+}
+
+/* Kawasaki ZX-10R Title */
+.zx10r-heading {
+    font-size: 32px;
+    font-weight: bold;
+    color: #448aff;
+    text-align: center;
+    margin-top: 50px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px #00264d;
+}
+
+/* Info Paragraph (Z900) */
+.new-sample {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #ccff90;
+    text-align: justify;
+    padding: 20px 40px;
+    margin: 20px auto;
+    width: 90%;
+    background-color: rgba(0, 51, 0, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 0 10px #00e67644;
+}
+
+/* Info Paragraph (ZX10R) */
+.new-sample2 {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #ffffff;
+    text-align: justify;
+    padding: 20px 40px;
+    margin: 20px auto;
+    width: 90%;
+    background-color: rgba(0, 0, 51, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 0 10px #448aff44;
+}
+
+/* Images */
+#z900-image,
+#zx10r-image {
+    display: block;
+    margin: 20px auto;
+    max-width: 90%;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+#z900-image:hover,
+#zx10r-image:hover {
+    transform: scale(1.02);
+}

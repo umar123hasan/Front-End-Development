@@ -1,0 +1,11 @@
+div {
+  width: 500px;
+  height: 90px;
+  padding: 10px;
+  color: blue;
+  border: 5px solid grey;
+  margin: 0;
+  overflow:hidden;
+  overflow-clip-margin: 10px;
+  overflow: scroll;
+}
