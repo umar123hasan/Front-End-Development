@@ -1,0 +1,334 @@
+/* Variables for Spotify colors */
+:root {
+    --spotify-black: #000000;
+    --spotify-dark-gray: #121212;
+    --spotify-medium-gray: #282828;
+    --spotify-light-gray: #b3b3b3; /* For inactive text/icons */
+    --spotify-text-white: #ffffff;
+    --spotify-green: #1DB954;
+    --spotify-active-bg: #232323; /* Background for active sidebar buttons */
+    --spotify-search-bg: #ffffff;
+    --spotify-search-text: #000000;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; /* A common, clean sans-serif font */
+    background-color: var(--spotify-dark-gray); /* Main background color for the page */
+    color: var(--spotify-text-white);
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Navbar Wrapper - for fixed positioning */
+.navbar-wrapper {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it stays on top */
+    background-color: var(--spotify-dark-gray); /* Match the body background below it initially */
+    padding-bottom: 8px; /* Slight padding at the bottom for visual separation from content */
+}
+
+/* Main Navbar Container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px; /* Adjusted padding to match Spotify more closely */
+    background-color: var(--spotify-black); /* Solid black for the actual navbar */
+    border-radius: 8px; /* Slightly rounded corners */
+    margin: 8px 8px 0 8px; /* Margin to create the floating effect */
+}
+
+/* Left Section: Spotify Logo and Home Button */
+.nav-section {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left-icons {
+    gap: 8px; /* Space between the two icon groups */
+}
+
+.spotify-logo-container {
+    background-color: var(--spotify-black); /* Should be black, but image has transparency */
+    border-radius: 50%; /* Circular container */
+    width: 48px; /* Fixed width */
+    height: 48px; /* Fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure image fits */
+    cursor: pointer; /* Indicate clickable */
+    transition: background-color 0.2s ease; /* Smooth hover */
+}
+
+.spotify-logo-container:hover {
+    background-color: #1a1a1a; /* Slightly lighter black on hover */
+}
+
+.spotify-logo-icon {
+    /* Adjusted width/height to fit well within the 48px container */
+    width: 65%;
+    height: 65%;
+    object-fit: contain; /* Ensures image scales down to fit without cropping */
+    transition: transform 0.2s ease; /* Smooth hover effect */
+}
+
+.spotify-logo-container:hover .spotify-logo-icon {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+
+.home-button-container {
+    background-color: var(--spotify-active-bg); /* Darker gray background for active home button */
+    border-radius: 50%; /* Circular shape */
+    width: 48px; /* Fixed width */
+    height: 48px; /* Fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* Smooth hover */
+}
+
+.home-button-container:hover {
+    background-color: #333333; /* Slightly lighter gray on hover */
+}
+
+.home-icon {
+    /* Adjusted width/height to fit well within the 48px container */
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    filter: invert(1); /* Makes black logo white */
+    transition: transform 0.2s ease; /* Smooth hover effect */
+}
+
+.home-button-container:hover .home-icon {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+
+/* Search Bar */
+.nav-search-container {
+    flex-grow: 1; /* Allows search bar to take up available space */
+    display: flex; /* Ensures search bar itself is a flex container */
+    justify-content: center; /* Center the search bar */
+    max-width: 450px; /* Max width for the search bar as seen in Spotify */
+    margin: 0 16px; /* Horizontal margin */
+}
+
+.search-bar {
+    background-color: #202020; /* White background */
+    border-radius: 50px; /* Pill shape */
+    padding: 8px 16px; /* Internal padding */
+    display: flex;
+    align-items: center;
+    width: 100%; /* Take full width of its container */
+}
+
+.search-icon { /* Font Awesome Search Icon */
+    color: var(--spotify-search-text); /* Black icons on white background */
+    font-size: 1.1em;
+    margin-right: 10px;
+    cursor: pointer; /* Indicate clickable */
+    transition: color 0.2s ease; /* Smooth hover */
+}
+
+.search-icon:hover {
+    color: #333333; /* Slightly darker on hover */
+}
+
+/* Styling for the new SVG icon */
+.search-svg-icon {
+    width: 1.1em; /* Match font-size of other icons for visual consistency */
+    height: 1.1em;
+    fill: var(--spotify-search-text); /* Set fill color for SVG path */
+    margin-left: auto; /* Push it to the right */
+    cursor: pointer;
+    transition: fill 0.2s ease;
+}
+
+.search-svg-icon:hover {
+    fill: #333333; /* Slightly darker on hover */
+}
+
+
+.search-input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 0.95em;
+    color: var(--spotify-search-text);
+    flex-grow: 1;
+    padding: 0;
+}
+
+.search-input::placeholder {
+    color: #535353; /* Darker grey placeholder text */
+}
+
+/* Right Section: Links and Buttons */
+.nav-right-actions {
+    gap: 16px; /* Space between links, separator, and buttons */
+}
+
+.nav-links {
+    display: flex;
+    gap: 16px;
+}
+
+.nav-link {
+    color: var(--spotify-light-gray); /* Light grey for inactive links */
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 600;
+    padding: 8px 0; /* Padding for click area */
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--spotify-text-white); /* White on hover */
+}
+
+.separator {
+    width: 1px;
+    height: 24px; /* Height of the separator line */
+    background-color: var(--spotify-medium-gray); /* Color of the separator */
+    margin: 0 8px; /* Space around the separator */
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 50px; /* Pill shape for buttons */
+    font-size: 0.9em;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    display: flex; /* For icons */
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+}
+
+.install-app-btn {
+    background-color: transparent;
+    color: var(--spotify-light-gray);
+}
+
+.install-app-btn:hover {
+    color: var(--spotify-text-white);
+    transform: scale(1.05);
+}
+
+.signup-btn {
+    background-color: transparent;
+    color: var(--spotify-light-gray);
+}
+
+.signup-btn:hover {
+    color: var(--spotify-text-white);
+    transform: scale(1.05);
+}
+
+.login-btn {
+    background-color: var(--spotify-text-white); /* White background for login button */
+    color: var(--spotify-black); /* Black text for login button */
+}
+
+.login-btn:hover {
+    background-color: #f6f6f6; /* Slightly lighter white on hover */
+    transform: scale(1.05);
+}
+
+/* Content Placeholder to show fixed navbar */
+.content-placeholder {
+    padding-top: 80px; /* Adjust this value to be greater than your navbar's height + top margin */
+    padding-left: 16px;
+    background-color: var(--spotify-dark-gray); /* Ensure content background matches body */
+    min-height: 200vh; /* Make it long enough to scroll */
+}
+
+.content-placeholder p {
+    margin-bottom: 10px;
+}
+
+/* Basic Responsiveness - adjust as needed */
+@media (max-width: 1200px) {
+    .nav-search-container {
+        max-width: 350px; /* Reduce search bar width */
+    }
+    .nav-links {
+        gap: 12px; /* Reduce space between links */
+    }
+    .btn {
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 1000px) {
+    .nav-links, .separator {
+        display: none; /* Hide premium/support/download links and separator */
+    }
+    .nav-search-container {
+        margin: 0 10px;
+    }
+    .nav-buttons {
+        gap: 8px;
+    }
+    .install-app-btn {
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap; /* Allow items to wrap */
+        justify-content: center; /* Center items when wrapped */
+        padding: 8px;
+        margin: 4px;
+    }
+    .nav-left-icons {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+    .nav-search-container {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        order: 3; /* Push search bar to the next line */
+    }
+    .nav-buttons {
+        width: 100%;
+        justify-content: center;
+        margin-top: 8px;
+        order: 4; /* Push buttons to the last line */
+    }
+    .btn {
+        flex-grow: 1; /* Make buttons expand to fill space */
+        text-align: center;
+        padding: 6px 8px;
+        font-size: 0.8em;
+    }
+    .install-app-btn i {
+        display: none; /* Hide icon on small screens to save space */
+    }
+    .content-placeholder {
+        padding-top: 150px; /* Adjust padding for wrapped navbar */
+    }
+}

@@ -1,0 +1,304 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #0f0f0f; /* Dark background as seen in the image */
+    color: #f1f1f1; /* Light text for contrast */
+}
+
+/* --- YouTube Navbar Styling (Matching image_a3fa2a.png) --- */
+.youtube-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px; /* Adjust padding to match image */
+    height: 56px; /* Standard YouTube height in the image */
+    background-color: #212121; /* Dark background for the navbar as in the image */
+    border-bottom: 1px solid #303030; /* Darker subtle border */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-left,
+.navbar-center,
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Icon Buttons (Hamburger, Create, Bell, etc.) */
+.icon-button {
+    position: relative; /* Needed for positioning the feedback div */
+    overflow: hidden; /* Important to clip the ripple effect */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px; /* Padding for click area */
+    margin: 0 4px; /* Space between icons */
+    border-radius: 50%; /* Circular */
+    transition: background-color 0.2s ease;
+    color: #f1f1f1; /* White/light gray icon color for dark theme */
+    width: 40px; /* Standard button size */
+    height: 40px; /* Standard button size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-button svg {
+    width: 24px; /* SVG icon size */
+    height: 24px; /* SVG icon size */
+    fill: currentColor; /* Inherit color from parent */
+    position: relative; /* Ensures SVG is above the feedback fill */
+    z-index: 2; /* Place SVG above the ripple */
+}
+
+/* --- yt-spec-touch-feedback-shape__fill styling (for ripple effect) --- */
+.yt-spec-touch-feedback-shape__fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle white overlay */
+    border-radius: 50%;
+    transform: scale(0); /* Start hidden */
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    pointer-events: none; /* Allows clicks to pass through to the button */
+    z-index: 1; /* Place below the SVG */
+}
+
+.icon-button:hover .yt-spec-touch-feedback-shape__fill,
+.sign-in-button:hover .yt-spec-touch-feedback-shape__fill {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* YouTube Logo */
+.youtube-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-left: 16px; /* Space after hamburger menu */
+}
+
+.youtube-logo-container {
+    width: 90px; /* Width based on the image's logo size */
+    height: 20px; /* Height based on the image's logo size */
+    display: flex;
+    align-items: center;
+}
+
+/* --- Search Bar Styling --- */
+.navbar-center {
+    flex-grow: 1;
+    justify-content: center;
+    margin: 0 20px; /* Space between left/right sections and search */
+}
+
+.ytSearchboxComponentInputBox {
+    flex-grow: 1;
+    max-width: 550px; /* Max width to match the visual in the image */
+    border: 1px solid #303030; /* Darker border */
+    border-right: none; /* No border on the right to blend with search button */
+    border-radius: 40px 0 0 40px; /* More rounded on left, square on right */
+    display: flex;
+    overflow: hidden;
+    height: 40px; /* Height to match icons */
+    background-color: #121212; /* Darker background for input field */
+}
+
+.ytSearchboxComponentSearchForm {
+    display: flex;
+    width: 100%;
+}
+
+.ytSearchboxComponentInput {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 0 16px;
+    font-size: 1rem;
+    color: #f1f1f1; /* Light text color */
+    background-color: transparent; /* Transparent to show parent's background */
+}
+
+.ytSearchboxComponentInput::placeholder {
+    color: #888;
+}
+
+/* Style for the search button (magnifying glass) next to the input */
+.search-button {
+    border-radius: 0 40px 40px 0; /* Rounded only on the right side */
+    background-color: #303030; /* Dark gray background for the button */
+    border: 1px solid #303030; /* Border to match the input box */
+    width: 64px; /* Fixed width for the search button */
+    margin: 0; /* Remove margin from general icon-button rule */
+    color: #f1f1f1; /* White icon */
+}
+
+.search-button:hover {
+    background-color: #444; /* Slightly lighter dark on hover */
+}
+
+/* Voice Search Button (microphone) */
+.voice-search-button {
+    background-color: #303030;
+    margin-left: 8px; /* Space from search bar */
+}
+
+/* --- Create Icon Specific Styling (Big with + icon) --- */
+.create-button {
+    width: 48px; /* Make it slightly larger */
+    height: 48px; /* Make it slightly larger */
+}
+
+.create-button svg {
+    width: 32px; /* Make the SVG itself larger */
+    height: 32px; /* Make the SVG itself larger */
+}
+
+/* --- Sign In Button Styling (Default Profile) --- */
+.sign-in-button {
+    background: none;
+    border: 1px solid #3ea6ff; /* Blue border for sign-in button */
+    color: #3ea6ff; /* Blue text color */
+    padding: 8px 12px;
+    border-radius: 20px; /* Rounded corners for the button */
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 8px; /* Space from bell icon */
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Space between icon and text */
+    position: relative; /* For ripple effect */
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+}
+
+.sign-in-button svg {
+    width: 20px; /* Icon size inside the button */
+    height: 20px;
+    fill: #3ea6ff; /* Blue fill for the icon */
+    position: relative;
+    z-index: 2;
+}
+
+.sign-in-button:hover {
+    background-color: rgba(62, 166, 255, 0.1); /* Light blue background on hover */
+}
+
+/* --- Main Content Area Styling (for the "Try searching" message) --- */
+.main-content-message {
+    margin: 80px auto; /* Center the box */
+    max-width: 500px;
+    background-color: #282828; /* Darker background for the message box */
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.main-content-message h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #f1f1f1;
+}
+
+.main-content-message p {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .youtube-navbar {
+        padding: 0 10px;
+    }
+
+    .navbar-left .youtube-logo-link {
+        margin-left: 10px;
+    }
+
+    .navbar-center {
+        margin: 0 10px;
+    }
+    .search-button, .voice-search-button {
+        display: none;
+    }
+    .ytSearchboxComponentInputBox {
+        max-width: unset;
+        border-radius: 40px;
+        border-right: 1px solid #303030;
+    }
+    .ytSearchboxComponentInput {
+        border-radius: 40px;
+    }
+    .create-button { /* Adjust size for smaller screens if needed */
+        width: 40px;
+        height: 40px;
+    }
+    .create-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    .main-content-message {
+        margin: 40px auto;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .youtube-navbar {
+        height: auto;
+        flex-wrap: wrap;
+        padding-bottom: 10px;
+    }
+
+    .navbar-left, .navbar-right {
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .navbar-left {
+        order: 1;
+    }
+    .navbar-right {
+        order: 3;
+    }
+
+    .navbar-center {
+        order: 2;
+        width: 100%;
+        margin: 0;
+    }
+    .ytSearchboxComponentInputBox {
+        width: 100%;
+    }
+    .menu-icon {
+        margin-left: 0;
+    }
+    .youtube-logo-link {
+        margin-left: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .sign-in-button {
+        margin-right: 0; /* Adjust for wrap */
+    }
+    .main-content-message {
+        margin: 20px auto;
+        max-width: 90%;
+    }
+}
